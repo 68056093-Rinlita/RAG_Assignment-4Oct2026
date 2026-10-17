@@ -135,7 +135,7 @@ class AnthropicStyleContextualRAG:
         # อ่านไฟล์ด้วย TextLoader
         pages = []
         for path in md_paths:
-            loader = TextLoader(path)
+            loader = TextLoader(path, encoding ="utf-8")
             pages.extend(loader.load())
 
         # แปลง Langchain Documents เป็น LlamaIndex Documents
