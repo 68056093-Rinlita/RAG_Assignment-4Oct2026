@@ -163,20 +163,19 @@ class AnthropicStyleContextualRAG:
             lc_chunks.append(lc_doc)
 
         return lc_chunks
-
+# ปรับเปลี่ยน Prompt เป็นภาษาไทย:
     def get_context_prompt(self, document_content, chunk_content):
         """สร้าง prompt สำหรับการสร้างบริบท (เหมือนในตัวอย่าง Anthropic)"""
         prompt = f"""<document>
 {document_content}
 </document>
 
-Here is the chunk we want to situate within the whole document:
+นี่คือข้อความส่วนย่อย (chunk) ที่ต้องการระบุบริบทในเอกสาร:
 <chunk>
 {chunk_content}
 </chunk>
 
-Please give a short succinct context to situate this chunk within the overall document for the purposes of improving search retrieval. Answer only with the succinct context and nothing else.
-"""
+โปรดเขียนอธิบายบริบทสั้นๆ สรุปว่าข้อความส่วนย่อยนี้พูดถึงเรื่องอะไรในภาพรวมของเอกสาร เพื่อใช้เพิ่มประสิทธิภาพในการค้นหา ตอบเฉพาะสรุปบริบทสั้นๆ เท่านั้น"""
         return prompt
 
     def generate_context(self, document_content, chunk_content):
