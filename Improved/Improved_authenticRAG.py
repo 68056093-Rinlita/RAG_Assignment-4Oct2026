@@ -5,6 +5,7 @@ from pathlib import Path
 import time
 from tqdm import tqdm
 from openai import OpenAI
+import glob
 
 # ติดตั้ง library ที่จำเป็น
 # pip install opensearchpy sentence-transformers llama-index llama-index-embeddings-huggingface openai
@@ -422,12 +423,7 @@ def main():
     # ดาวน์โหลด corpus
     download_corpus()
 
-    md_paths = [
-        "./corpus_input/1.md",
-        "./corpus_input/2.md",
-        "./corpus_input/44.md",
-        "./corpus_input/5555.md",   
-    ]
+    md_paths = glob.glob("../corpus_input/*.md")
 
     # ตั้งค่าระบบ Contextual RAG แบบ Anthropic
     rag = AnthropicStyleContextualRAG(
