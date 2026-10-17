@@ -270,7 +270,7 @@ def main():
     results = rag.search_multiple_questions(questions, k=5)
     
     # ส่งออกผลลัพธ์ไปยังไฟล์ JSON
-    rag.export_results_to_json(results, "authentic_rag_search_results.json")
+    rag.export_results_to_json(results, "improved_authentic_rag_search_results.json")
 
 if __name__ == "__main__":
     main()
