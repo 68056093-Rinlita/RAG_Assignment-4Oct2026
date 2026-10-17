@@ -60,6 +60,7 @@ class AnthropicStyleContextualRAG:
         self.rrf_k = 60
 
         # ตั้งค่า MarkdownNodeParser
+        #ปรับ
         # ปรับ chunk_size เพิ่มขึ้นเป็น 512  และเพิ่ม chunk_overlap เพื่อไม่ให้ความหมายขาดช่วง
         self.md_parser = MarkdownNodeParser(chunk_size=512,chunk_overlap=50)
         
